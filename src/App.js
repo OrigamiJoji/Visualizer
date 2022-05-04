@@ -14,10 +14,10 @@ function App() {
           Green: Start | Red: End | White: Open | Black: Wall
         </div>
       </div>
-      <div className="container">
+      <div className="grid">
         <PathfindingVisualizer></PathfindingVisualizer>
       </div>
-      <div className="container">
+      <div className="container" id="controls">
         <div className="item">
           <button>Visualize</button>
         </div>

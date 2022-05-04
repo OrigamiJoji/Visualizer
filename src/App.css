@@ -13,6 +13,15 @@ html {
   text-align: center;
   justify-content: center;
 }
+.container#controls {
+  margin: 10px;
+}
+.grid {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(50, 1fr);
+}
 .item {
   display: flex;
   text-align: center;
