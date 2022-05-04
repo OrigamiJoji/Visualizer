@@ -1,12 +1,26 @@
 import React, { Component } from "react";
 import Node from "./Node";
 
-
-
 export default class PathfindingVisualizer extends Component {
-    render() {
-        
+  constructor(props) {
+    super(props);
+    var maxCol = 50;
+    var maxRow = 15;
+  }
+  componentDidMount() {
+    const nodes = [];
+    for (let row = 0; row < this.maxRow; row++) {
+      const currentRow = [];
+      for (let col = 0; col < this.maxCol; col++) {
+        currentRow.push([]);
+      }
+      nodes.push(row);
     }
+  }
+
+  render() {
+    return <>text</>;
+  }
 }
 
 /*
