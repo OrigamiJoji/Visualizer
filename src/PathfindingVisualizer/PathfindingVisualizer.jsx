@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 import Node from "./Node";
 
+
+
+export default class PathfindingVisualizer extends Component {
+    render() {
+        
+    }
+}
+
+/*
+
 export default class PathfindingVisualizer extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +48,6 @@ export default class PathfindingVisualizer extends Component {
         );
     }
 }
-/*
 
             <div>
                 {nodes.map((row, rowIdx) => {
