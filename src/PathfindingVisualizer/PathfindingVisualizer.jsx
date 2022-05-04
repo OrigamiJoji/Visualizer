@@ -1,6 +1,59 @@
 import React, { Component } from "react";
 import Node from "./Node";
 
+const MAX_ROW = 15;
+const MAX_COL = 50;
+
+const START_NODE_ROW = 5;
+const START_NODE_COL = 2;
+const END_NODE_ROW = 5;
+const END_NODE_COL = 48;
+
+export default class PathfindingVisualizer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      grid: [],
+    }
+  }
+  componentDidMount() {
+    this.grid = createGrid();
+  }
+
+  render() {
+      return(
+        <Node></Node>
+      );
+  }
+
+};
+
+const createNode = (col, row) => {
+  return {
+    col,
+    row,
+    isStart: row === START_NODE_ROW && col === START_NODE_COL,
+    isEnd: row === END_NODE_ROW && col === END_NODE_COL,
+    distance: Infinity,
+    isVisited: false,
+    previousNode: null,
+  };
+};
+
+const createGrid = () => {
+  const grid = [];
+  for (let row = 0; row < MAX_ROW; row++) {
+    const currentRow = [];
+    for (let col = 0; col < MAX_COL; col++) {
+      currentRow.push(createNode(col, row));
+    }
+    grid.push(currentRow);
+  }
+  return grid;
+}
+
+/*
+
 export default class PathfindingVisualizer extends Component {
     constructor(props) {
         super(props);
@@ -38,7 +91,6 @@ export default class PathfindingVisualizer extends Component {
         );
     }
 }
-/*
 
             <div>
                 {nodes.map((row, rowIdx) => {
