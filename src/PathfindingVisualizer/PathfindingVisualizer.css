@@ -1,4 +1,7 @@
 .nodeRow{
-    display: grid;
-    background-color: #2adb91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1px;
+    margin: 1px;
   }
