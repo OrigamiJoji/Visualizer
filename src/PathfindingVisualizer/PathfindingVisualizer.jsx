@@ -22,10 +22,9 @@ export default class PathfindingVisualizer extends Component {
 
   render() {
       return(
-        <Node></Node>
+        this.grid.map()
       );
   }
-
 };
 
 const createNode = (col, row) => {
@@ -35,7 +34,6 @@ const createNode = (col, row) => {
     isStart: row === START_NODE_ROW && col === START_NODE_COL,
     isEnd: row === END_NODE_ROW && col === END_NODE_COL,
     distance: Infinity,
-    isVisited: false,
     previousNode: null,
   };
 };
