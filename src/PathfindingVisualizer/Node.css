@@ -1,6 +1,21 @@
 
 .node {
-    width: 10px;
-    height: 10px;
+    width: 1vw;
+    height: 1vw;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline-width: 1px;
+    outline-color: black;
+}
+
+.node#start {
+background-color: #2adb91;
+}
+.node#end {
+background-color: red;
+}
+.node#wall {
+background-color: black;
 }

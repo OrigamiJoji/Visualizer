@@ -3,10 +3,13 @@
   --aeroblue: #f5fffb;
   --richblack: #0c0e0e;
   --lightaquamarine: #2adb91;
+  overflow:auto;
 }
 html {
   background-color: var(--richblack);
-  color: var(--aeroblue)
+  color: var(--aeroblue);
+  width:100% ;
+  height: 50%;
 }
 .container {
   display: flex;
@@ -16,14 +19,12 @@ html {
 .container#controls {
   margin: 10px;
 }
-.grid {
-  margin: 10px;
-  display: grid;
-  grid-template-columns: repeat(15, 1fr);
-  grid-template-rows: repeat(50, 1fr);
-}
-.item {
+.container .item {
   display: flex;
   text-align: center;
   justify-content: center;
+}
+
+.grid {
+  margin: 10px;
 }
