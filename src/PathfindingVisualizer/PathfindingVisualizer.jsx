@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Node from "./Node";
+import style from "./PathfindingVisualizer.css";
 
 const MAX_ROW = 15;
 const MAX_COL = 50;
@@ -14,23 +15,31 @@ export default class PathfindingVisualizer extends Component {
     super(props);
     this.state = {
       grid: [],
-    }
-  }
-  componentDidMount() {
-    this.grid = createGrid();
+    };
+    this.grid = createGrid(MAX_ROW, MAX_COL);
   }
 
   render() {
-      return(
-        this.grid.map()
-      );
+    return (
+      <>
+        {this.grid.map((rowNode, rowIdx) => {
+          return (
+            <div key={rowIdx} className="nodeRow">
+              {rowNode.map((colNode, colIdx) => {
+                return <Node key={colIdx}></Node>;
+              })}
+            </div>
+          );
+        })}
+      </>
+    );
   }
-};
+}
 
-const createNode = (col, row) => {
+const createNode = (row, col) => {
   return {
-    col,
     row,
+    col,
     isStart: row === START_NODE_ROW && col === START_NODE_COL,
     isEnd: row === END_NODE_ROW && col === END_NODE_COL,
     distance: Infinity,
@@ -38,17 +47,17 @@ const createNode = (col, row) => {
   };
 };
 
-const createGrid = () => {
+const createGrid = (rowSize, colSize) => {
   const grid = [];
-  for (let row = 0; row < MAX_ROW; row++) {
+  for (let row = 0; row < rowSize; row++) {
     const currentRow = [];
-    for (let col = 0; col < MAX_COL; col++) {
-      currentRow.push(createNode(col, row));
+    for (let col = 0; col < colSize; col++) {
+      currentRow.push(createNode(row, col));
     }
     grid.push(currentRow);
   }
   return grid;
-}
+};
 
 /*
 
