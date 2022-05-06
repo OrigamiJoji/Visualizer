@@ -25,8 +25,13 @@ export default class Node extends Component {
 
     return (
       <>
-        <div className="node" id={nodeType}></div>
+        <div className="node" id={nodeType} onClick={() => this.setWall()}></div>
       </>
     );
+  }
+
+  setWall() {
+    this.isWall = true;
+    this.render();
   }
 }
