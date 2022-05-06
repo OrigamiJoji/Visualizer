@@ -1,6 +1,5 @@
 const grid = document.querySelector(".grid");
 
-
 function getNearbyNodes(grid, node) {
   var { col, row } = node;
   var nearbyNodes = [];
@@ -20,14 +19,6 @@ function getNearbyNodes(grid, node) {
   return nearbyNodes;
 }
 
-function traverse(grid, node) {
-  var currentNode = node;
-  var neighbors = getNearbyNodes(grid, node);
-  for(let i = neighbors.length; i > 0; i--) {
-    renderNodeInProgress(neighbors[i]);
-  }
-}
-
 export function solve(grid, start, end) {
   console.log(getNearbyNodes(grid, start));
   let arr = getNearbyNodes(grid, start);
@@ -37,7 +28,6 @@ export function solve(grid, start, end) {
     e.distance = start.distance + 1;
     e.previousNode = start;
   });
-  //traverse(grid, start);
 }
 
 function renderNodeInProgress(node) {

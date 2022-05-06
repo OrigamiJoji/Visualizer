@@ -8,8 +8,8 @@ const MAX_ROW = 40;
 const MAX_COL = 60;
 
 // Positions of start and end nodes
-const START_NODE_ROW = 20;
-const START_NODE_COL = 5;
+const START_NODE_ROW = 1;
+const START_NODE_COL = 1;
 const END_NODE_ROW = 2;
 const END_NODE_COL = 35;
 
