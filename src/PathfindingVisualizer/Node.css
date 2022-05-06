@@ -19,7 +19,7 @@
   background-color: black;
 }
 .node#searched {
-  background-color: yellow;
+  background-color: rgb(160, 160, 160);
 }
 .node#solution {
   background-color: #2adb91;

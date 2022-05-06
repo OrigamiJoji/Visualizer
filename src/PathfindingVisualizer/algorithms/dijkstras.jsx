@@ -1,3 +1,6 @@
+const grid = document.querySelector(".grid");
+
+
 function getNearbyNodes(grid, node) {
   var { col, row } = node;
   var nearbyNodes = [];
@@ -14,10 +17,31 @@ function getNearbyNodes(grid, node) {
   if (node.col < grid[0].length - 1) {
     nearbyNodes.push(grid[row][col - 1]);
   }
-
   return nearbyNodes;
 }
 
-export function solve(grid, node) {
-  console.log(getNearbyNodes(grid, node));
+function traverse(grid, node) {
+  var currentNode = node;
+  var neighbors = getNearbyNodes(grid, node);
+  for(let i = neighbors.length; i > 0; i--) {
+    renderNodeInProgress(neighbors[i]);
+  }
+}
+
+export function solve(grid, start, end) {
+  console.log(getNearbyNodes(grid, start));
+  let arr = getNearbyNodes(grid, start);
+  arr.forEach((e) => {
+    renderNodeInProgress(e);
+    e.isDiscovered = true;
+    e.distance = start.distance + 1;
+    e.previousNode = start;
+  });
+  //traverse(grid, start);
+}
+
+function renderNodeInProgress(node) {
+  var physicalNodeRow = ".nodeRow:nth-of-type(" + (node.row+1) + ")";
+  var physicalNode = ".node:nth-of-type(" + (node.col+1) + ")";
+  document.querySelector(physicalNodeRow).querySelector(physicalNode).id = "searched";
 }

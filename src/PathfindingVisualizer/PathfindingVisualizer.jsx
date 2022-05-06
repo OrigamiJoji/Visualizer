@@ -50,7 +50,7 @@ export default class PathfindingVisualizer extends Component {
           );
         })}
         <div className="container">
-          <button className="item" onClick={visualize(this.grid)}>
+          <button className="item" onClick={() => visualize(this.grid)}>
             Visualize
           </button>
         </div>
@@ -58,9 +58,14 @@ export default class PathfindingVisualizer extends Component {
     );
   }
 }
-const visualize = (grid) => {
-  solve(grid, grid[20][5]);
-};
+
+function visualize(grid) {
+  solve(
+    grid,
+    grid[START_NODE_ROW][START_NODE_COL],
+    grid[END_NODE_ROW][END_NODE_COL]
+  );
+}
 
 const createGrid = (rowSize, colSize) => {
   const grid = [];
@@ -81,7 +86,8 @@ const createNode = (row, col) => {
     isStart: row === START_NODE_ROW && col === START_NODE_COL,
     isEnd: row === END_NODE_ROW && col === END_NODE_COL,
     isWall: false,
-    distance: Infinity,
+    isDiscovered: false,
+    distance: (Infinity),
     previousNode: null,
   };
 };
