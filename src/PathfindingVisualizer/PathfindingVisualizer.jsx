@@ -8,10 +8,10 @@ const MAX_ROW = 40;
 const MAX_COL = 60;
 
 // Positions of start and end nodes
-const START_NODE_ROW = 1;
-const START_NODE_COL = 1;
-const END_NODE_ROW = 2;
-const END_NODE_COL = 35;
+const START_NODE_ROW = 35;
+const START_NODE_COL = 35;
+const END_NODE_ROW = 1;
+const END_NODE_COL = 3;
 
 // Component PathfindingVisualizer
 export default class PathfindingVisualizer extends Component {

@@ -19,8 +19,19 @@
   background-color: black;
 }
 .node#searched {
-  background-color: rgb(160, 160, 160);
+  animation-name: "discovered";
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 .node#solution {
   background-color: #2adb91;
+}
+
+@keyframes discovered {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
