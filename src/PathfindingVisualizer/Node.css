@@ -1,21 +1,37 @@
-
 .node {
-    width: 1vw;
-    height: 1vw;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    outline-width: 1px;
-    outline-color: black;
+  width: 1vw;
+  height: 1vw;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline-width: 1px;
+  outline-color: black;
 }
 
 .node#start {
-background-color: #2adb91;
+  background-color: #2adb91;
 }
 .node#end {
-background-color: red;
+  background-color: red;
 }
 .node#wall {
-background-color: black;
+  background-color: black;
+}
+.node#searched {
+  animation-name: "discovered";
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+.node#solution {
+  background-color: #2adb91;
+}
+
+@keyframes discovered {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

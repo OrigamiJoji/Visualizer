@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import Node from "./Node";
 import "./PathfindingVisualizer.css";
-import "./algorithms/dijkstras.jsx";
+import { solve } from "./algorithms/dijkstras.jsx";
 
 // Size of grid
-const MAX_ROW = 50;
-const MAX_COL = 100;
+const MAX_ROW = 40;
+const MAX_COL = 60;
 
 // Positions of start and end nodes
-const START_NODE_ROW = 20;
-const START_NODE_COL = 5;
-const END_NODE_ROW = 2;
-const END_NODE_COL = 35;
+const START_NODE_ROW = 35;
+const START_NODE_COL = 35;
+const END_NODE_ROW = 1;
+const END_NODE_COL = 3;
 
 // Component PathfindingVisualizer
 export default class PathfindingVisualizer extends Component {
@@ -26,7 +26,7 @@ export default class PathfindingVisualizer extends Component {
   }
 
   // When component renders, return a div for each row and x nodes contained within
-  // Set the node's values to the predetermined grid values. 
+  // Set the node's values to the predetermined grid values.
   render() {
     return (
       <>
@@ -49,9 +49,22 @@ export default class PathfindingVisualizer extends Component {
             </div>
           );
         })}
+        <div className="container">
+          <button className="item" onClick={() => visualize(this.grid)}>
+            Visualize
+          </button>
+        </div>
       </>
     );
   }
+}
+
+function visualize(grid) {
+  solve(
+    grid,
+    grid[START_NODE_ROW][START_NODE_COL],
+    grid[END_NODE_ROW][END_NODE_COL]
+  );
 }
 
 const createGrid = (rowSize, colSize) => {
@@ -73,7 +86,8 @@ const createNode = (row, col) => {
     isStart: row === START_NODE_ROW && col === START_NODE_COL,
     isEnd: row === END_NODE_ROW && col === END_NODE_COL,
     isWall: false,
-    distance: Infinity,
+    isDiscovered: false,
+    distance: (Infinity),
     previousNode: null,
   };
 };

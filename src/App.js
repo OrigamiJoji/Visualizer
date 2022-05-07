@@ -17,11 +17,6 @@ function App() {
       <div className="grid">
         <PathfindingVisualizer></PathfindingVisualizer>
       </div>
-      <div className="container" id="controls">
-        <div className="item">
-          <button>Visualize</button>
-        </div>
-      </div>
     </>
   );
 }

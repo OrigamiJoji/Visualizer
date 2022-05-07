@@ -28,3 +28,13 @@ html {
 .grid {
   margin: 10px;
 }
+button {
+ background-color: var(--lightaquamarine);
+ margin: 10px;
+}
+button:hover {
+  background-color:#26c784;
+}
+button:active {
+  background-color:#2e9469;
+}
