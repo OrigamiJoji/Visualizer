@@ -21,6 +21,7 @@
 .node#searched {
   animation-name: "discovered";
   animation-delay: 1s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
 }
 .node#solution {
