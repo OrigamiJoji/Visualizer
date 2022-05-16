@@ -11,7 +11,7 @@ function App() {
       </div>
       <div className="container">
         <div className="item">
-          Green: Start | Red: End | White: Open | Black: Wall
+          Green: Start | Red: End | White: Undiscovered | Black: Wall
         </div>
       </div>
       <div className="grid">

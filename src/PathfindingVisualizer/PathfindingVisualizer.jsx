@@ -8,10 +8,10 @@ const MAX_ROW = 40;
 const MAX_COL = 60;
 
 // Positions of start and end nodes
-const START_NODE_ROW = 35;
-const START_NODE_COL = 35;
-const END_NODE_ROW = 1;
-const END_NODE_COL = 3;
+const START_NODE_ROW = 2;
+const START_NODE_COL = 58;
+const END_NODE_ROW = 2;
+const END_NODE_COL = 2;
 
 // Component PathfindingVisualizer
 export default class PathfindingVisualizer extends Component {
@@ -25,8 +25,13 @@ export default class PathfindingVisualizer extends Component {
     this.grid = createGrid(MAX_ROW, MAX_COL);
   }
 
+  makeWall(row, col) {
+    this.grid[row][col].isWall = true;
+  }
+
   // When component renders, return a div for each row and x nodes contained within
   // Set the node's values to the predetermined grid values.
+
   render() {
     return (
       <>
@@ -50,8 +55,9 @@ export default class PathfindingVisualizer extends Component {
           );
         })}
         <div className="container">
+          
           <button className="item" onClick={() => visualize(this.grid)}>
-            Visualize
+            Solve
           </button>
         </div>
       </>
@@ -60,6 +66,11 @@ export default class PathfindingVisualizer extends Component {
 }
 
 function visualize(grid) {
+  if(START_NODE_COL == END_NODE_COL && END_NODE_ROW == START_NODE_ROW) {
+    document.querySelector("button").innerText = "Error";
+    return;
+  }
+
   solve(
     grid,
     grid[START_NODE_ROW][START_NODE_COL],

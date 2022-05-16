@@ -39,8 +39,6 @@ export function solve(grid, start, end) {
   start.isDiscovered = true;
   start.distance = 0;
   searchQueue.push(start);
-  console.log(end);
-
   while (unsolved) {
     getNodes(grid);
   }
@@ -48,8 +46,6 @@ export function solve(grid, start, end) {
 }
 
 function animateDiscoveries(orderedNodes, end) {
-  console.log(end);
-
   orderedNodes.forEach((e, i) => {
     setTimeout(() => {
       changeNodeDiscover(e);
@@ -69,12 +65,15 @@ function animateSolution(end) {
 }
 
 function backtrack(end) {
-  const solution = [];
+  let tempStack = [];
+  let solution = [];
   var currentNode = end.previousNode;
   for (var i = end.distance; i > 1; i--) {
-    solution.push(currentNode);
-    console.log(currentNode.previousNode);
+    tempStack.push(currentNode);
     currentNode = currentNode.previousNode;
+  }
+  for(let i = tempStack.length; i > 0; i--) {
+    solution.push(tempStack.pop());
   }
   return solution;
 }

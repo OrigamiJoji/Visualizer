@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import "./Node.css";
+import PV from "./PathfindingVisualizer";
 
 export default class Node extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+
+  setWall() {
+    const {row, col} = this.props;
+    var physicalNodeRow = ".nodeRow:nth-of-type(" + (row + 1) + ")";
+  var physicalNode = ".node:nth-of-type(" + (col + 1) + ")";
+  document
+    .querySelector(physicalNodeRow)
+    .querySelector(physicalNode).style.backgroundColor = "yellow";
   }
 
-  updateProps(props) {
-    this.state = props;
-  }
   render() {
     const { col, row, isStart, isEnd, isWall } = this.props;
     var nodeType;
@@ -22,16 +25,12 @@ export default class Node extends Component {
     if (isWall) {
       nodeType = "wall";
     }
-
     return (
       <>
-        <div className="node" id={nodeType} onClick={() => this.setWall()}></div>
+        <div className="node" id={nodeType} onClick={() => {makeWall(row, col)}}></div>
       </>
     );
+
   }
 
-  setWall() {
-    this.isWall = true;
-    this.render();
-  }
 }
